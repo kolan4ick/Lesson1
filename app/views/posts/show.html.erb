@@ -1,0 +1,5 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<hr>
+<%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
+<%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
