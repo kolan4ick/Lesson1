@@ -12111,3 +12111,1329 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 363)
 
 
+Started POST "/posts" for 127.0.0.1 at 2020-12-19 11:10:39 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"1", "body"=>"2", "image"=>#<ActionDispatch::Http::UploadedFile:0x00005570245389c0 @tempfile=#<Tempfile:/tmp/RackMultipart20201219-45202-1g6ylk2.png>, @original_filename="Снимок экрана от 2020-12-13 00-13-24.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"\xD0\xA1\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xBE\xD0\xBA \xD1\x8D\xD0\xBA\xD1\x80\xD0\xB0\xD0\xBD\xD0\xB0 \xD0\xBE\xD1\x82 2020-12-13 00-13-24.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Створити"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "1"], ["body", "2"], ["created_at", "2020-12-19 09:10:39.538718"], ["updated_at", "2020-12-19 09:10:39.538718"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 32], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 32], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "nduag1uz2j4ynoxftphnjwmpuova"], ["filename", "Снимок экрана от 2020-12-13 00-13-24.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 795744], ["checksum", "zKnNK0atl93LCVNqTO1y8Q=="], ["created_at", "2020-12-19 09:10:39.598811"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 32], ["blob_id", 14], ["created_at", "2020-12-19 09:10:39.606304"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2020-12-19 09:10:39.613810"], ["id", 32]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+[36m  Disk Storage (6.9ms) [0m[32mUploaded file to key: nduag1uz2j4ynoxftphnjwmpuova (checksum: zKnNK0atl93LCVNqTO1y8Q==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ddee472c-5188-4293-ac25-4c2e756eec56) to Async(default) with arguments: #<GlobalID:0x00007f95a1348c60 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/14>>
+Redirected to http://localhost:3000/posts/32
+Completed 302 Found in 144ms (ActiveRecord: 8.1ms | Allocations: 31781)
+
+
+Started GET "/posts/32" for 127.0.0.1 at 2020-12-19 11:10:39 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 32], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56] Performing ActiveStorage::AnalyzeJob (Job ID: ddee472c-5188-4293-ac25-4c2e756eec56) from Async(default) enqueued at 2020-12-19T09:10:39Z with arguments: #<GlobalID:0x00007f959c02c810 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/14>>
+  Rendered posts/show.html.erb within layouts/application (Duration: 55.9ms | Allocations: 17202)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56] [36m  Disk Storage (9.9ms) [0m[34mDownloaded file from key: nduag1uz2j4ynoxftphnjwmpuova[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.5ms | Allocations: 22154)
+Completed 200 OK in 103ms (Views: 80.6ms | ActiveRecord: 6.2ms | Allocations: 28477)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 14]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56]   [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddee472c-5188-4293-ac25-4c2e756eec56] Performed ActiveStorage::AnalyzeJob (Job ID: ddee472c-5188-4293-ac25-4c2e756eec56) from Async(default) in 49.64ms
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a780eee4264b47f98b64d09f8fd05db39fbd4c65/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:10:39 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a780eee4264b47f98b64d09f8fd05db39fbd4c65", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[36m  Disk Storage (4.9ms) [0m[34mGenerated URL for file at key: nduag1uz2j4ynoxftphnjwmpuova (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibVIxWVdjeGRYb3lhalI1Ym05NFpuUndhRzVxZDIxd2RXOTJZUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTU6NDAuMDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--6de9158b4cf4eda08c6205cf6054759621535047/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibVIxWVdjeGRYb3lhalI1Ym05NFpuUndhRzVxZDIxd2RXOTJZUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTU6NDAuMDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--6de9158b4cf4eda08c6205cf6054759621535047/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png
+Completed 302 Found in 18ms (ActiveRecord: 0.3ms | Allocations: 2024)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibVIxWVdjeGRYb3lhalI1Ym05NFpuUndhRzVxZDIxd2RXOTJZUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTU6NDAuMDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--6de9158b4cf4eda08c6205cf6054759621535047/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:10:40 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+Completed 200 OK in 6ms (ActiveRecord: 0.0ms | Allocations: 362)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:10:44 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [14 times] (Duration: 2.6ms | Allocations: 1075)
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 2119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 5192)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.5ms | Allocations: 5612)
+
+
+Started GET "/posts/32" for 127.0.0.1 at 2020-12-19 11:13:46 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 32], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 23.5ms | Allocations: 2182)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 5254)
+Completed 200 OK in 44ms (Views: 34.2ms | ActiveRecord: 1.6ms | Allocations: 6260)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibVIxWVdjeGRYb3lhalI1Ym05NFpuUndhRzVxZDIxd2RXOTJZUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTU6NDAuMDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--6de9158b4cf4eda08c6205cf6054759621535047/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:13:46 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/posts/27" for 127.0.0.1 at 2020-12-19 11:13:48 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 27], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 5227)
+Completed 200 OK in 36ms (Views: 29.4ms | ActiveRecord: 0.8ms | Allocations: 6218)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8540bb47324e56ea4d4fedbd6d963003db6c5230/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:13:48 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8540bb47324e56ea4d4fedbd6d963003db6c5230", "filename"=>"Без названия"}
+  [1m[36mActiveStorage::Blob Load (7.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[36m  Disk Storage (1.1ms) [0m[34mGenerated URL for file at key: hgh8q94ixyikm7semvrvps9j3vsb (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhR2RvT0hFNU5HbDRlV2xyYlRkelpXMTJjblp3Y3pscU0zWnpZZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo0OC4zOTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--e320cd92e3590c63b21bd51eefb8ca4b5478ed10/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhR2RvT0hFNU5HbDRlV2xyYlRkelpXMTJjblp3Y3pscU0zWnpZZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo0OC4zOTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--e320cd92e3590c63b21bd51eefb8ca4b5478ed10/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png
+Completed 302 Found in 24ms (ActiveRecord: 7.7ms | Allocations: 1715)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhR2RvT0hFNU5HbDRlV2xyYlRkelpXMTJjblp3Y3pscU0zWnpZZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo0OC4zOTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--e320cd92e3590c63b21bd51eefb8ca4b5478ed10/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:13:48 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/posts/20" for 127.0.0.1 at 2020-12-19 11:13:50 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.9ms | Allocations: 3133)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 3215)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.5ms | Allocations: 4173)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `persisted?' for nil:NilClass):
+    1: <h1><%= @post.title %></h1>
+    2: <p><%= @post.body %></p>
+    3: 
+    4: <%= image_tag(@post.image)%>
+    5: <%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
+    6: <%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
+  
+app/views/posts/show.html.erb:4
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:13:51 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [14 times] (Duration: 10.7ms | Allocations: 1073)
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 2086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 5159)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.5ms | Allocations: 5579)
+
+
+Started GET "/posts/26" for 127.0.0.1 at 2020-12-19 11:13:53 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 26], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.0ms | Allocations: 2157)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 5230)
+Completed 200 OK in 35ms (Views: 28.4ms | ActiveRecord: 0.9ms | Allocations: 6228)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f6092e276f2be547f98fdfe9f48510d61ca01ccf/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:13:53 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f6092e276f2be547f98fdfe9f48510d61ca01ccf", "filename"=>"Без названия"}
+  [1m[36mActiveStorage::Blob Load (2.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[36m  Disk Storage (4.2ms) [0m[34mGenerated URL for file at key: fkwpl5wcdtaoshsme4ttvchkghk5 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXQzY0d3MWQyTmtkR0Z2YzJoemJXVTBkSFIyWTJocloyaHJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo1My43MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--19430d01ef906839e376c738131ca282147f4012/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXQzY0d3MWQyTmtkR0Z2YzJoemJXVTBkSFIyWTJocloyaHJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo1My43MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--19430d01ef906839e376c738131ca282147f4012/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png
+Completed 302 Found in 14ms (ActiveRecord: 2.0ms | Allocations: 1715)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXQzY0d3MWQyTmtkR0Z2YzJoemJXVTBkSFIyWTJocloyaHJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxODo1My43MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--19430d01ef906839e376c738131ca282147f4012/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:13:53 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/posts/30" for 127.0.0.1 at 2020-12-19 11:13:55 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 30], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 25.6ms | Allocations: 3132)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 3214)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.5ms | Allocations: 4172)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `persisted?' for nil:NilClass):
+    1: <h1><%= @post.title %></h1>
+    2: <p><%= @post.body %></p>
+    3: 
+    4: <%= image_tag(@post.image)%>
+    5: <%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
+    6: <%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
+  
+app/views/posts/show.html.erb:4
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:13:57 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [14 times] (Duration: 4.6ms | Allocations: 1073)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 5159)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.3ms | Allocations: 5579)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2020-12-19 11:13:59 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 17.9ms | Allocations: 3133)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3215)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.5ms | Allocations: 4174)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `persisted?' for nil:NilClass):
+    1: <h1><%= @post.title %></h1>
+    2: <p><%= @post.body %></p>
+    3: 
+    4: <%= image_tag(@post.image)%>
+    5: <%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
+    6: <%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
+  
+app/views/posts/show.html.erb:4
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:14:00 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [14 times] (Duration: 11.6ms | Allocations: 1073)
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 2086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 5159)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.2ms | Allocations: 5579)
+
+
+Started GET "/posts/3/edit" for 127.0.0.1 at 2020-12-19 11:14:01 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.8ms | Allocations: 612)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1084)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 4154)
+Completed 200 OK in 36ms (Views: 27.0ms | ActiveRecord: 0.4ms | Allocations: 5274)
+
+
+Started PATCH "/posts/3" for 127.0.0.1 at 2020-12-19 11:14:05 +0200
+Processing by PostsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Перша стаття", "body"=>"Текст першої статті.", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f95a18356d8 @tempfile=#<Tempfile:/tmp/RackMultipart20201219-45202-1fvuz3b.png>, @original_filename="Снимок экрана от 2020-12-13 00-13-24.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"\xD0\xA1\xD0\xBD\xD0\xB8\xD0\xBC\xD0\xBE\xD0\xBA \xD1\x8D\xD0\xBA\xD1\x80\xD0\xB0\xD0\xBD\xD0\xB0 \xD0\xBE\xD1\x82 2020-12-13 00-13-24.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Редагувати", "id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "1uw6zbf8yenenq7x1z458ewmxcud"], ["filename", "Снимок экрана от 2020-12-13 00-13-24.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 795744], ["checksum", "zKnNK0atl93LCVNqTO1y8Q=="], ["created_at", "2020-12-19 09:14:05.352182"]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 3], ["blob_id", 15], ["created_at", "2020-12-19 09:14:05.361445"]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2020-12-19 09:14:05.371040"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+[36m  Disk Storage (11.0ms) [0m[32mUploaded file to key: 1uw6zbf8yenenq7x1z458ewmxcud (checksum: zKnNK0atl93LCVNqTO1y8Q==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c22e5e39-3a61-4a81-88e5-aead2db6ffbd) to Async(default) with arguments: #<GlobalID:0x00007f95983c1970 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/15>>
+  [1m[36mActiveStorage::Blob Load (2.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 112ms (ActiveRecord: 9.8ms | Allocations: 15870)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd] Performing ActiveStorage::AnalyzeJob (Job ID: c22e5e39-3a61-4a81-88e5-aead2db6ffbd) from Async(default) enqueued at 2020-12-19T09:14:05Z with arguments: #<GlobalID:0x00007f959c06a9f8 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/15>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd] [36m  Disk Storage (2.3ms) [0m[34mDownloaded file from key: 1uw6zbf8yenenq7x1z458ewmxcud[0m
+Started GET "/posts/3" for 127.0.0.1 at 2020-12-19 11:14:05 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd] Skipping image analysis because the mini_magick gem isn't installed
+  Rendering posts/show.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 15]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd]   [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c22e5e39-3a61-4a81-88e5-aead2db6ffbd] Performed ActiveStorage::AnalyzeJob (Job ID: c22e5e39-3a61-4a81-88e5-aead2db6ffbd) from Async(default) in 108.3ms
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 64.6ms | Allocations: 6349)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 118.2ms | Allocations: 9741)
+Completed 200 OK in 134ms (Views: 118.9ms | ActiveRecord: 1.2ms | Allocations: 12746)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--376af65bb994d210f7e6ee4f7daa597d8f952e10/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:14:05 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--376af65bb994d210f7e6ee4f7daa597d8f952e10", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[36m  Disk Storage (9.5ms) [0m[34mGenerated URL for file at key: 1uw6zbf8yenenq7x1z458ewmxcud (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNWFYzTm5waVpqaDVaVzVsYm5FM2VERjZORFU0WlhkdGVHTjFaQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTk6MDUuNzA4WiIsInB1ciI6ImJsb2Jfa2V5In19--b84d80ebe332eabe4640906f850143e2829f978a/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNWFYzTm5waVpqaDVaVzVsYm5FM2VERjZORFU0WlhkdGVHTjFaQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTk6MDUuNzA4WiIsInB1ciI6ImJsb2Jfa2V5In19--b84d80ebe332eabe4640906f850143e2829f978a/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png
+Completed 302 Found in 31ms (ActiveRecord: 0.3ms | Allocations: 1774)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNWFYzTm5waVpqaDVaVzVsYm5FM2VERjZORFU0WlhkdGVHTjFaQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTk6MDUuNzA4WiIsInB1ciI6ImJsb2Jfa2V5In19--b84d80ebe332eabe4640906f850143e2829f978a/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:14:05 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/posts/3/edit" for 127.0.0.1 at 2020-12-19 11:14:07 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.2ms | Allocations: 610)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 3958)
+Completed 200 OK in 25ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 4942)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:14:08 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (4.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [14 times] (Duration: 2.6ms | Allocations: 1073)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 2089)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 5161)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 4.7ms | Allocations: 5588)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2020-12-19 11:14:09 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (4.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 22.5ms | Allocations: 2166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 5238)
+Completed 200 OK in 39ms (Views: 29.5ms | ActiveRecord: 5.3ms | Allocations: 6229)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNWFYzTm5waVpqaDVaVzVsYm5FM2VERjZORFU0WlhkdGVHTjFaQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWVCcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0lDVXpSaVV6UmlBeU1ESXdMVEV5TFRFeklEQXdMVEV6TFRJMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuSlVRd0pVRXhKVVF3SlVKRUpVUXdKVUk0SlVRd0pVSkRKVVF3SlVKRkpVUXdKVUpCSlRJd0pVUXhKVGhFSlVRd0pVSkJKVVF4SlRnd0pVUXdKVUl3SlVRd0pVSkVKVVF3SlVJd0pUSXdKVVF3SlVKRkpVUXhKVGd5SlRJd01qQXlNQzB4TWkweE15VXlNREF3TFRFekxUSTBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjAtMTItMTlUMDk6MTk6MDUuNzA4WiIsInB1ciI6ImJsb2Jfa2V5In19--b84d80ebe332eabe4640906f850143e2829f978a/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202020-12-13%2000-13-24.png" for 127.0.0.1 at 2020-12-19 11:14:09 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Снимок экрана от 2020-12-13 00-13-24"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started DELETE "/posts/3" for 127.0.0.1 at 2020-12-19 11:14:10 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (2.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 005846cd-fe71-4b05-9f9a-001aa29ee18d) to Async(default) with arguments: #<GlobalID:0x00007f959839b8b0 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/15>>
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d] Performing ActiveStorage::PurgeJob (Job ID: 005846cd-fe71-4b05-9f9a-001aa29ee18d) from Async(default) enqueued at 2020-12-19T09:14:10Z with arguments: #<GlobalID:0x00007f95983b3eb0 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/15>>
+Completed 302 Found in 90ms (ActiveRecord: 12.6ms | Allocations: 9371)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:11 +0200
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mActiveStorage::Attachment Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 15], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 15]]
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+Processing by PostsController#index as HTML
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 15]]
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d]   [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [13 times] (Duration: 2.3ms | Allocations: 997)
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d] [36m  Disk Storage (17.6ms) [0m[31mDeleted file from key: 1uw6zbf8yenenq7x1z458ewmxcud[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/1uw6zbf8yenenq7x1z458ewmxcud/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [005846cd-fe71-4b05-9f9a-001aa29ee18d] Performed ActiveStorage::PurgeJob (Job ID: 005846cd-fe71-4b05-9f9a-001aa29ee18d) from Async(default) in 123.71ms
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 2018)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 5269)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.5ms | Allocations: 8870)
+
+
+Started GET "/posts/10/edit" for 127.0.0.1 at 2020-12-19 11:14:12 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.4ms | Allocations: 608)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 3956)
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 0.5ms | Allocations: 4947)
+
+
+Started PATCH "/posts/10" for 127.0.0.1 at 2020-12-19 11:14:15 +0200
+Processing by PostsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Друга стаття", "body"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f95a12b3cf0 @tempfile=#<Tempfile:/tmp/RackMultipart20201219-45202-bh39m8.png>, @original_filename="Без названия.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"\xD0\x91\xD0\xB5\xD0\xB7 \xD0\xBD\xD0\xB0\xD0\xB7\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Редагувати", "id"=>"10"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Blob Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "fjdxma86v8c1r43bw0u42qbr2hj2"], ["filename", "Без названия.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 848680], ["checksum", "9e5t3ZMTq5wqBKq4l6ZIbA=="], ["created_at", "2020-12-19 09:14:15.276954"]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 10], ["blob_id", 16], ["created_at", "2020-12-19 09:14:15.287202"]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2020-12-19 09:14:15.294321"], ["id", 10]]
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `update'
+[36m  Disk Storage (9.8ms) [0m[32mUploaded file to key: fjdxma86v8c1r43bw0u42qbr2hj2 (checksum: 9e5t3ZMTq5wqBKq4l6ZIbA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1e31efbf-0469-4804-bbf8-6aa94bba515c) to Async(default) with arguments: #<GlobalID:0x00007f95a1585d48 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/16>>
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/10
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c] Performing ActiveStorage::AnalyzeJob (Job ID: 1e31efbf-0469-4804-bbf8-6aa94bba515c) from Async(default) enqueued at 2020-12-19T09:14:15Z with arguments: #<GlobalID:0x00007f95a15b7b90 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/16>>
+Completed 302 Found in 96ms (ActiveRecord: 9.7ms | Allocations: 14948)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c] [36m  Disk Storage (3.5ms) [0m[34mDownloaded file from key: fjdxma86v8c1r43bw0u42qbr2hj2[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 16]]
+Started GET "/posts/10" for 127.0.0.1 at 2020-12-19 11:14:15 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c]   [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1e31efbf-0469-4804-bbf8-6aa94bba515c] Performed ActiveStorage::AnalyzeJob (Job ID: 1e31efbf-0469-4804-bbf8-6aa94bba515c) from Async(default) in 61.39ms
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 5293)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 1.8ms | Allocations: 6816)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7807ea2b9cb63b078094541533dc9a444fed9d8/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:14:15 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7807ea2b9cb63b078094541533dc9a444fed9d8", "filename"=>"Без названия"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: fjdxma86v8c1r43bw0u42qbr2hj2 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXBrZUcxaE9EWjJPR014Y2pRelluY3dkVFF5Y1dKeU1taHFNZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOToxNS40OTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--555c9e93245fbca68afa4de02e333227243f3271/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXBrZUcxaE9EWjJPR014Y2pRelluY3dkVFF5Y1dKeU1taHFNZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOToxNS40OTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--555c9e93245fbca68afa4de02e333227243f3271/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png
+Completed 302 Found in 12ms (ActiveRecord: 0.3ms | Allocations: 2042)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXBrZUcxaE9EWjJPR014Y2pRelluY3dkVFF5Y1dKeU1taHFNZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOToxNS40OTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--555c9e93245fbca68afa4de02e333227243f3271/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:14:15 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/posts/10/edit" for 127.0.0.1 at 2020-12-19 11:14:17 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.7ms | Allocations: 608)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3956)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.2ms | Allocations: 4940)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:19 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [13 times] (Duration: 6.1ms | Allocations: 997)
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 2000)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5073)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.3ms | Allocations: 5500)
+
+
+Started GET "/posts/10/edit" for 127.0.0.1 at 2020-12-19 11:14:21 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.3ms | Allocations: 608)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 8.6ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 3956)
+Completed 200 OK in 53ms (Views: 37.5ms | ActiveRecord: 0.3ms | Allocations: 4947)
+
+
+Started GET "/posts/10" for 127.0.0.1 at 2020-12-19 11:14:25 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2153)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5225)
+Completed 200 OK in 40ms (Views: 31.0ms | ActiveRecord: 0.7ms | Allocations: 6216)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhabXBrZUcxaE9EWjJPR014Y2pRelluY3dkVFF5Y1dKeU1taHFNZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOToxNS40OTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--555c9e93245fbca68afa4de02e333227243f3271/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:14:25 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started DELETE "/posts/10" for 127.0.0.1 at 2020-12-19 11:14:27 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"10"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 02564f84-a6c5-409e-aa2d-971148f02281) to Async(default) with arguments: #<GlobalID:0x00007f95a199b450 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/16>>
+  [1m[36mActiveStorage::Blob Load (2.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281] Performing ActiveStorage::PurgeJob (Job ID: 02564f84-a6c5-409e-aa2d-971148f02281) from Async(default) enqueued at 2020-12-19T09:14:27Z with arguments: #<GlobalID:0x00007f9598144f58 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/16>>
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+Completed 302 Found in 76ms (ActiveRecord: 5.9ms | Allocations: 9677)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mActiveStorage::Attachment Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 16], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 16]]
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mActiveStorage::Blob Destroy (1.1ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 16]]
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281]   [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:27 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281] [36m  Disk Storage (0.8ms) [0m[31mDeleted file from key: fjdxma86v8c1r43bw0u42qbr2hj2[0m
+  Rendered collection of posts/_post.html.erb [12 times] (Duration: 8.6ms | Allocations: 920)
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281] [36m  Disk Storage (0.3ms) [0m[31mDeleted files by key prefix: variants/fjdxma86v8c1r43bw0u42qbr2hj2/[0m
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 2551)
+[ActiveJob] [ActiveStorage::PurgeJob] [02564f84-a6c5-409e-aa2d-971148f02281] Performed ActiveStorage::PurgeJob (Job ID: 02564f84-a6c5-409e-aa2d-971148f02281) from Async(default) in 72.64ms
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 5734)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.3ms | Allocations: 7704)
+
+
+Started DELETE "/posts/18" for 127.0.0.1 at 2020-12-19 11:14:28 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"18"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 18], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (23.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 57ms (ActiveRecord: 26.1ms | Allocations: 5873)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:28 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [11 times] (Duration: 2.0ms | Allocations: 846)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1827)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4900)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.2ms | Allocations: 5320)
+
+
+Started DELETE "/posts/19" for 127.0.0.1 at 2020-12-19 11:14:29 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"19"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 19], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (10.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 56ms (ActiveRecord: 28.4ms | Allocations: 5873)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:29 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [10 times] (Duration: 2.0ms | Allocations: 770)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1740)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 4812)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.4ms | Allocations: 5232)
+
+
+Started DELETE "/posts/20" for 127.0.0.1 at 2020-12-19 11:14:29 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"20"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 53ms (ActiveRecord: 12.1ms | Allocations: 5874)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:29 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [9 times] (Duration: 1.7ms | Allocations: 695)
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4726)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms | Allocations: 5146)
+
+
+Started DELETE "/posts/21" for 127.0.0.1 at 2020-12-19 11:14:30 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"21"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 21]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 43ms (ActiveRecord: 7.9ms | Allocations: 5874)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:30 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [8 times] (Duration: 1.5ms | Allocations: 620)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1568)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 4640)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 5060)
+
+
+Started DELETE "/posts/23" for 127.0.0.1 at 2020-12-19 11:14:30 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"23"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 92051aa1-fdb0-4bcd-97bb-18b3f00a0da6) to Async(default) with arguments: #<GlobalID:0x0000557025b347b0 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/4>>
+  [1m[36mActiveStorage::Blob Load (3.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6] Performing ActiveStorage::PurgeJob (Job ID: 92051aa1-fdb0-4bcd-97bb-18b3f00a0da6) from Async(default) enqueued at 2020-12-19T09:14:30Z with arguments: #<GlobalID:0x0000557025b5b798 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/4>>
+Completed 302 Found in 85ms (ActiveRecord: 14.6ms | Allocations: 9220)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mActiveStorage::Attachment Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 4]]
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mActiveStorage::Blob Destroy (8.5ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 4]]
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6]   [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6] [36m  Disk Storage (0.3ms) [0m[31mDeleted file from key: 215ozw4cgjss0eoom6ton8j5aqrr[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/215ozw4cgjss0eoom6ton8j5aqrr/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [92051aa1-fdb0-4bcd-97bb-18b3f00a0da6] Performed ActiveStorage::PurgeJob (Job ID: 92051aa1-fdb0-4bcd-97bb-18b3f00a0da6) from Async(default) in 42.8ms
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:30 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [7 times] (Duration: 2.7ms | Allocations: 546)
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1482)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4555)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 4975)
+
+
+Started DELETE "/posts/24" for 127.0.0.1 at 2020-12-19 11:14:31 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"24"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (6.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 24]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 8eb08ca3-dbd8-4cee-820b-8360964c8158) to Async(default) with arguments: #<GlobalID:0x00007f95a1533660 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/6>>
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158] Performing ActiveStorage::PurgeJob (Job ID: 8eb08ca3-dbd8-4cee-820b-8360964c8158) from Async(default) enqueued at 2020-12-19T09:14:31Z with arguments: #<GlobalID:0x00007f95a1551c78 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/6>>
+Completed 302 Found in 102ms (ActiveRecord: 15.5ms | Allocations: 9220)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mActiveStorage::Attachment Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 6], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 6]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 6]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158]   [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158] [36m  Disk Storage (0.3ms) [0m[31mDeleted file from key: 9ux5u4mt3ijcr9acau71ko91dg1k[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158] [36m  Disk Storage (0.2ms) [0m[31mDeleted files by key prefix: variants/9ux5u4mt3ijcr9acau71ko91dg1k/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8eb08ca3-dbd8-4cee-820b-8360964c8158] Performed ActiveStorage::PurgeJob (Job ID: 8eb08ca3-dbd8-4cee-820b-8360964c8158) from Async(default) in 40.37ms
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:31 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [6 times] (Duration: 1.2ms | Allocations: 470)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1410)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 4482)
+Completed 200 OK in 40ms (Views: 31.6ms | ActiveRecord: 1.3ms | Allocations: 4902)
+
+
+Started DELETE "/posts/25" for 127.0.0.1 at 2020-12-19 11:14:31 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"25"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 25], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 835b6449-f3ee-4d52-aa97-56888576b27d) to Async(default) with arguments: #<GlobalID:0x00007f959c077568 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/8>>
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d] Performing ActiveStorage::PurgeJob (Job ID: 835b6449-f3ee-4d52-aa97-56888576b27d) from Async(default) enqueued at 2020-12-19T09:14:31Z with arguments: #<GlobalID:0x00007f959000cdc8 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/8>>
+Completed 302 Found in 68ms (ActiveRecord: 10.5ms | Allocations: 9222)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mActiveStorage::Attachment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 8], ["LIMIT", 1]]
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:31 +0200
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mActiveStorage::VariantRecord Load (0.7ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 8]]
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+Processing by PostsController#index as HTML
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 8]]
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d]   [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d] [36m  Disk Storage (1.4ms) [0m[31mDeleted file from key: v61dxin0p0bpb3o600npxbzmwi5h[0m
+  ↳ app/views/posts/index.html.erb:2
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/v61dxin0p0bpb3o600npxbzmwi5h/[0m
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 1.6ms | Allocations: 396)
+[ActiveJob] [ActiveStorage::PurgeJob] [835b6449-f3ee-4d52-aa97-56888576b27d] Performed ActiveStorage::PurgeJob (Job ID: 835b6449-f3ee-4d52-aa97-56888576b27d) from Async(default) in 104.36ms
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2810)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 6487)
+Completed 200 OK in 85ms (Views: 81.6ms | ActiveRecord: 0.2ms | Allocations: 8578)
+
+
+Started DELETE "/posts/26" for 127.0.0.1 at 2020-12-19 11:14:32 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"26"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 26], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 26]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 7f95d36b-d8ae-41da-b2fe-2164ea500879) to Async(default) with arguments: #<GlobalID:0x00007f95a06dfe38 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/9>>
+Redirected to http://localhost:3000/posts
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+Completed 302 Found in 70ms (ActiveRecord: 8.7ms | Allocations: 8538)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879] Performing ActiveStorage::PurgeJob (Job ID: 7f95d36b-d8ae-41da-b2fe-2164ea500879) from Async(default) enqueued at 2020-12-19T09:14:32Z with arguments: #<GlobalID:0x00007f95a06f4450 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/9>>
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mActiveStorage::Attachment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 9], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 9]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mActiveStorage::Blob Destroy (0.9ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 9]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879]   [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:32 +0200
+Processing by PostsController#index as HTML
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879] [36m  Disk Storage (1.9ms) [0m[31mDeleted file from key: fkwpl5wcdtaoshsme4ttvchkghk5[0m
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879] [36m  Disk Storage (0.2ms) [0m[31mDeleted files by key prefix: variants/fkwpl5wcdtaoshsme4ttvchkghk5/[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7f95d36b-d8ae-41da-b2fe-2164ea500879] Performed ActiveStorage::PurgeJob (Job ID: 7f95d36b-d8ae-41da-b2fe-2164ea500879) from Async(default) in 68.32ms
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [4 times] (Duration: 1.0ms | Allocations: 320)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1324)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4437)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.3ms | Allocations: 4893)
+
+
+Started DELETE "/posts/27" for 127.0.0.1 at 2020-12-19 11:14:32 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"27"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 27], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 27]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: bacf4dc0-6482-483b-aaa4-9950c1f55deb) to Async(default) with arguments: #<GlobalID:0x00007f95a18035c0 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/10>>
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 79ms (ActiveRecord: 7.9ms | Allocations: 9143)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb] Performing ActiveStorage::PurgeJob (Job ID: bacf4dc0-6482-483b-aaa4-9950c1f55deb) from Async(default) enqueued at 2020-12-19T09:14:32Z with arguments: #<GlobalID:0x00007f95a1824bd0 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/10>>
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mActiveStorage::Attachment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 10], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 10]]
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mActiveStorage::Blob Destroy (0.7ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 10]]
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:32 +0200
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb]   [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb] [36m  Disk Storage (2.3ms) [0m[31mDeleted file from key: hgh8q94ixyikm7semvrvps9j3vsb[0m
+  Rendering posts/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/hgh8q94ixyikm7semvrvps9j3vsb/[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [bacf4dc0-6482-483b-aaa4-9950c1f55deb] Performed ActiveStorage::PurgeJob (Job ID: bacf4dc0-6482-483b-aaa4-9950c1f55deb) from Async(default) in 48.2ms
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [3 times] (Duration: 3.6ms | Allocations: 245)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1247)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 4384)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms | Allocations: 5931)
+
+
+Started DELETE "/posts/30" for 127.0.0.1 at 2020-12-19 11:14:33 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"30"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 30], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 30]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 81ms (ActiveRecord: 5.4ms | Allocations: 5873)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:33 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.6ms | Allocations: 171)
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1052)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4125)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.2ms | Allocations: 4545)
+
+
+Started DELETE "/posts/31" for 127.0.0.1 at 2020-12-19 11:14:33 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"31"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 31], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (8.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 31]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 0778ccf2-7fd7-49c2-b4ac-66bf14038bc7) to Async(default) with arguments: #<GlobalID:0x00007f95a06e5630 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/13>>
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7] Performing ActiveStorage::PurgeJob (Job ID: 0778ccf2-7fd7-49c2-b4ac-66bf14038bc7) from Async(default) enqueued at 2020-12-19T09:14:33Z with arguments: #<GlobalID:0x00007f95a08cd330 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/13>>
+Completed 302 Found in 86ms (ActiveRecord: 18.8ms | Allocations: 9143)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mActiveStorage::Attachment Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 13], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 13]]
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 13]]
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7]   [1m[36mTRANSACTION (11.5ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7] [36m  Disk Storage (0.4ms) [0m[31mDeleted file from key: z7ko9r2enptch1bprfzgiq0yi4di[0m
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:33 +0200
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/z7ko9r2enptch1bprfzgiq0yi4di/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [0778ccf2-7fd7-49c2-b4ac-66bf14038bc7] Performed ActiveStorage::PurgeJob (Job ID: 0778ccf2-7fd7-49c2-b4ac-66bf14038bc7) from Async(default) in 42.63ms
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 0.8ms | Allocations: 95)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 963)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 4035)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.3ms | Allocations: 4455)
+
+
+Started DELETE "/posts/32" for 127.0.0.1 at 2020-12-19 11:14:34 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"32"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 32], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (8.4ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 32]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 3b4a13be-a164-4bad-b733-61ef7959112a) to Async(default) with arguments: #<GlobalID:0x00007f95a17f2900 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/14>>
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a] Performing ActiveStorage::PurgeJob (Job ID: 3b4a13be-a164-4bad-b733-61ef7959112a) from Async(default) enqueued at 2020-12-19T09:14:34Z with arguments: #<GlobalID:0x00007f95a18101f8 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/14>>
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 77ms (ActiveRecord: 18.0ms | Allocations: 9239)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mActiveStorage::Attachment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 14], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 14]]
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 14]]
+Started GET "/posts" for 127.0.0.1 at 2020-12-19 11:14:34 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a]   [1m[36mTRANSACTION (13.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a] [36m  Disk Storage (0.4ms) [0m[31mDeleted file from key: nduag1uz2j4ynoxftphnjwmpuova[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/nduag1uz2j4ynoxftphnjwmpuova/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [3b4a13be-a164-4bad-b733-61ef7959112a] Performed ActiveStorage::PurgeJob (Job ID: 3b4a13be-a164-4bad-b733-61ef7959112a) from Async(default) in 55.08ms
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 11)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3666)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6738)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.2ms | Allocations: 7158)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-12-19 11:14:34 +0200
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.5ms | Allocations: 602)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 859)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 3930)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.0ms | Allocations: 4361)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-12-19 11:14:51 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Перша стаття", "body"=>"Це - перша стаття", "image"=>#<ActionDispatch::Http::UploadedFile:0x000055702506bef0 @tempfile=#<Tempfile:/tmp/RackMultipart20201219-45202-1wosl3v.png>, @original_filename="Без названия.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"\xD0\x91\xD0\xB5\xD0\xB7 \xD0\xBD\xD0\xB0\xD0\xB7\xD0\xB2\xD0\xB0\xD0\xBD\xD0\xB8\xD1\x8F.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Створити"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Перша стаття"], ["body", "Це - перша стаття"], ["created_at", "2020-12-19 09:14:51.193043"], ["updated_at", "2020-12-19 09:14:51.193043"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 33], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 33], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "nig5fs40av4uoftvaqynj9vrvsym"], ["filename", "Без названия.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 848680], ["checksum", "9e5t3ZMTq5wqBKq4l6ZIbA=="], ["created_at", "2020-12-19 09:14:51.221025"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mActiveStorage::Attachment Create (2.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 33], ["blob_id", 17], ["created_at", "2020-12-19 09:14:51.231778"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2020-12-19 09:14:51.243944"], ["id", 33]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+[36m  Disk Storage (4.9ms) [0m[32mUploaded file to key: nig5fs40av4uoftvaqynj9vrvsym (checksum: 9e5t3ZMTq5wqBKq4l6ZIbA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 92f9bb44-d150-4edc-ab52-a4b5839571de) to Async(default) with arguments: #<GlobalID:0x00007f95a06b84c8 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/17>>
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/33
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de] Performing ActiveStorage::AnalyzeJob (Job ID: 92f9bb44-d150-4edc-ab52-a4b5839571de) from Async(default) enqueued at 2020-12-19T09:14:51Z with arguments: #<GlobalID:0x00007f95a0f265d8 @uri=#<URI::GID gid://kk/ActiveStorage::Blob/17>>
+Completed 302 Found in 110ms (ActiveRecord: 13.8ms | Allocations: 14980)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de] [36m  Disk Storage (1.8ms) [0m[34mDownloaded file from key: nig5fs40av4uoftvaqynj9vrvsym[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de]   [1m[36mActiveStorage::Blob Update (9.1ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 17]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de]   [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [92f9bb44-d150-4edc-ab52-a4b5839571de] Performed ActiveStorage::AnalyzeJob (Job ID: 92f9bb44-d150-4edc-ab52-a4b5839571de) from Async(default) in 97.8ms
+Started GET "/posts/33" for 127.0.0.1 at 2020-12-19 11:14:51 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 33], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 34.9ms | Allocations: 2154)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 5559)
+Completed 200 OK in 66ms (Views: 54.5ms | ActiveRecord: 1.7ms | Allocations: 6543)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8ac6ca0a12e6f468d05d4a8e3db217277151507a/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:14:51 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8ac6ca0a12e6f468d05d4a8e3db217277151507a", "filename"=>"Без названия"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[36m  Disk Storage (6.6ms) [0m[34mGenerated URL for file at key: nig5fs40av4uoftvaqynj9vrvsym (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxuTldaek5EQmhkalIxYjJaMGRtRnhlVzVxT1haeWRuTjViUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOTo1MS41NTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4e45d162be9e09d1756c203ebc2bcd343b62896b/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxuTldaek5EQmhkalIxYjJaMGRtRnhlVzVxT1haeWRuTjViUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOTo1MS41NTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4e45d162be9e09d1756c203ebc2bcd343b62896b/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png
+Completed 302 Found in 34ms (ActiveRecord: 0.2ms | Allocations: 1710)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxuTldaek5EQmhkalIxYjJaMGRtRnhlVzVxT1haeWRuTjViUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOTo1MS41NTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4e45d162be9e09d1756c203ebc2bcd343b62896b/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:14:51 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:14:55 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 0.8ms | Allocations: 97)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 966)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 4038)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms | Allocations: 4465)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-12-19 11:18:12 +0200
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 4.0ms | Allocations: 786)
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 4572)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 5747)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-12-19 11:18:16 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"123", "body"=>"фів"}, "commit"=>"Створити"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "123"], ["body", "фів"], ["created_at", "2020-12-19 09:18:16.040798"], ["updated_at", "2020-12-19 09:18:16.040798"]]
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:15:in `create'
+Redirected to http://localhost:3000/posts/34
+Completed 302 Found in 57ms (ActiveRecord: 11.7ms | Allocations: 4530)
+
+
+Started GET "/posts/34" for 127.0.0.1 at 2020-12-19 11:18:16 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (2.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 34], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:3
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1266)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 4340)
+Completed 200 OK in 37ms (Views: 18.0ms | ActiveRecord: 3.0ms | Allocations: 5454)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:18:17 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 1.7ms | Allocations: 314)
+  Rendered posts/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 1441)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 4514)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.3ms | Allocations: 5070)
+
+
+Started GET "/posts/33" for 127.0.0.1 at 2020-12-19 11:18:18 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 33], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.9ms | Allocations: 2133)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 5205)
+Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 0.7ms | Allocations: 6197)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxuTldaek5EQmhkalIxYjJaMGRtRnhlVzVxT1haeWRuTjViUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVpWcGJteHBibVU3SUdacGJHVnVZVzFsUFNJbE0wWWxNMFlsTTBZZ0pUTkdKVE5HSlROR0pUTkdKVE5HSlROR0pUTkdKVE5HTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25KVVF3SlRreEpVUXdKVUkxSlVRd0pVSTNKVEl3SlVRd0pVSkVKVVF3SlVJd0pVUXdKVUkzSlVRd0pVSXlKVVF3SlVJd0pVUXdKVUpFSlVRd0pVSTRKVVF4SlRoR0xuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMC0xMi0xOVQwOToxOTo1MS41NTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4e45d162be9e09d1756c203ebc2bcd343b62896b/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" for 127.0.0.1 at 2020-12-19 11:18:18 +0200
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Без названия"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 324)
+
+
+Started GET "/posts/34" for 127.0.0.1 at 2020-12-19 11:19:06 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 34], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:3
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.5ms | Allocations: 1087)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | Allocations: 4159)
+Completed 200 OK in 65ms (Views: 56.5ms | ActiveRecord: 0.5ms | Allocations: 5149)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-19 11:19:17 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 8.8ms | Allocations: 171)
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.4ms | Allocations: 1052)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 4125)
+Completed 200 OK in 64ms (Views: 62.4ms | ActiveRecord: 0.3ms | Allocations: 4551)
+
+
+Started GET "/posts/33" for 127.0.0.1 at 2020-12-19 11:19:18 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:34:in `post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (4.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 33], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  Rendered posts/show.html.erb within layouts/application (Duration: 63.4ms | Allocations: 2125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 90.1ms | Allocations: 5198)
+Completed 200 OK in 102ms (Views: 90.9ms | ActiveRecord: 4.5ms | Allocations: 6190)
+
+
