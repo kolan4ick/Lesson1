@@ -5,8 +5,12 @@
   <%= f.text_field :title %>
 </div>
 <div class="">
-<b>
-  <%= f.label :body %>
-</b>
+  <b>
+    <%= f.label :body %>
+  </b>
   <%= f.text_area :body %>
 </div>
+<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image, class: "form-control" %>
+  </div>
