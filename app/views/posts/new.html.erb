@@ -1,4 +1,5 @@
 <%= form_for @post do |f| %>
   <%= render "form", f:f%>
-  <%= f.submit "Створити"%>
-<% end %>
+  <button type="submit" class="btn btn-outline-success btn-lg">Створити</button>
+  <span class="p-2 text-dark"><%= link_to "Відміна", root_path, :class => "btn btn-outline-danger" %></span>
+  <% end %>

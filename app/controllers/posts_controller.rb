@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
-  before_action :post, only: %i[show edit]
+  before_action :post, only: %i[edit]
 
   def index
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @comments = post.comments
+  end
 
   def new
     @post = Post.new
@@ -35,6 +37,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, images: [])
   end
 end

@@ -13,4 +13,8 @@
 <div class="field">
   <%= f.label :image %>
   <%= f.file_field :image, class: "form-control" %>
-  </div>
+  <p>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, class: "form-control"%>
+  </p>
+</div>
