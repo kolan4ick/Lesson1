@@ -18,6 +18,10 @@
     Коментарі:
     <%= render @comments %>
   </div>
-  <%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
-  <%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
+  <% if user_signed_in? %>
+    <% if @post.username.eql? current_user.email %>
+      <span class="p-2 text-dark"><%= link_to "Редагувати", edit_post_path(@post), :class => "btn btn-outline-success" %></span>
+  <% end %>
+<% end %>
+<%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
 </div>

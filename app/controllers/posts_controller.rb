@@ -14,10 +14,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(post_params)
-    post.username = current_user.email
-    post.save
-    redirect_to post
+    @post = Post.new(post_params)
+    @post.username = current_user.email
+    @post.save
+    redirect_to @post
   end
 
   def edit; end
