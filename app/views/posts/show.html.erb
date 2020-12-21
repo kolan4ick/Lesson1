@@ -1,22 +1,23 @@
-<div class="">
-<h1>
-  <%= @post.title%>
-  <%= link_to "edit", edit_post_path(@post)%>
-</h1>
-<%= image_tag @post.photo, width:500, height:500 %>
-<p>
-<%= @post.body%>
-</p>
-<div id="images">
-  <% @post.images.each do |image|%>
-    <%= image_tag image, width:300, height:300%>
-  <%end%>
+<div class="col">
+  <h1>
+    <%= @post.title%>
+  </h1>
+  <%= image_tag @post.photo, width:500, height:500 %>
+  <p>
+    <%= @post.body%>
+  </p>
+  <div class="col">
+    <% @post.images.each do |image|%>
+      <%= image_tag image, width:300, height:300%>
+    <%end%>
+  </div>
+  <div class="comments">
+    <%if user_signed_in?%>
+      <%= render "comments/form"%>
+    <% end %>
+    Коментарі:
+    <%= render @comments %>
+  </div>
+  <%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
+  <%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
 </div>
-<div class="comments">
-  <%= render "comments/form"%>
-  Коментарі:
-  <%= render @comments %>
-</div>
-</div>
-<%= link_to "Редагувати", edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to "На головну", root_path , :class => 'btn btn-warning' %>

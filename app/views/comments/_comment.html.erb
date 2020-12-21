@@ -1,7 +1,14 @@
-<div id="comment_<%=comment.id%>">
-  <p><%= comment.text%></p>
-  <span>
-    <%= comment.user_name%>
-  </span>
-  <%= comment.created_at%>
+<div id="comment_<%= comment.id %>">
+  <div class="alert alert-light">
+    <p><%= comment.text%></p>
+    <span>
+      <%= comment.user_name%>
+    </span>
+    <%= comment.created_at%>
+  </div>
+  <%if user_signed_in? %>
+    <% if comment.user_name.eql? current_user.email %>
+      <%= link_to "Удалить Коммент", post_comment_path(@post, comment), method: :delete, data: { confirm: "Вы хотите удалить?" }, :class => 'btn btn-danger'%>
+    <% end %>
+  <% end %>
 </div>

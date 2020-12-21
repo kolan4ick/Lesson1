@@ -15,6 +15,8 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(post_params)
+    post.username = current_user.email
+    post.save
     redirect_to post
   end
 
