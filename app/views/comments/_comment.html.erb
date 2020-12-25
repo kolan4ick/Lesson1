@@ -1,14 +1,13 @@
-<div id="comment_<%= comment.id %>">
-  <div class="alert alert-light">
+  <div id="comment_<%=comment.id%>">
     <p><%= comment.text%></p>
     <span>
-      <%= comment.user_name%>
+      <%= comment.user.email%><%= link_to "delete", comment_path(comment),method: :delete,class:"btn btn-danger" if user_signed_in? && comment.user_id == current_user.id %>
     </span>
     <%= comment.created_at%>
+
+      <%= render "comments/form", object: comment%>
+      <div style="padding: 20px">
+      Коментарі:
+      <%=render comment.comments %>
+    </div>
   </div>
-  <%if user_signed_in? %>
-    <% if comment.user_name.eql? current_user.email %>
-      <%= link_to "Удалить Коммент", post_comment_path(@post, comment), method: :delete, data: { confirm: "Вы хотите удалить?" }, :class => 'btn btn-danger'%>
-    <% end %>
-  <% end %>
-</div>

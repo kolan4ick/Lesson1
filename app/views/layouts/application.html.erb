@@ -16,17 +16,19 @@
       <nav class="my-2 my-md-0 me-md-3">
         <div class="row-3">
           <% if !(user_signed_in?) %>
-          <span class="p-2 text-dark"><%= link_to "Увійти", user_session_path, :class => 'btn btn-warning' %></span>
-          <span class="p-2 text-dark"><%= link_to "Зареєструватись", new_user_registration_path, :class => 'btn btn-warning' %></span>
+            <span class="p-2 text-dark"><%= link_to "Увійти", user_session_path, :class => 'btn btn-warning' %></span>
+            <span class="p-2 text-dark"><%= link_to "Зареєструватись", new_user_registration_path, :class => 'btn btn-warning' %></span>
           <% end %>
           <%if user_signed_in?%>
-          <span class="p-2 text-dark"><%= link_to "Створити нову статтю", new_post_path(@post), :class => 'btn btn-warning' %></span>
+            <span class="p-2 text-dark"><%= link_to "Створити нову статтю", new_post_path(@post), :class => 'btn btn-warning' %></span>
             <span class="p-2 text-dark"><%= link_to "Вийти", destroy_user_session_path, method: :delete, :class => 'btn btn-warning' %></span>
           <% end %>
         </div>
       </nav>
       <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
     </header>
-    <%= yield %>
+    <div style="padding: 20px">
+      <%= yield %>
+    </div>
   </body>
 </html>

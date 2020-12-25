@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  before_action :post, only: %i[edit]
+  before_action :authenticate_user!, except: %i[index show]
+
+  before_action :user_post, only: %i[edit update destroy]
+  # before_action :post
 
   def index
     @posts = Post.all
@@ -14,10 +17,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.username = current_user.email
-    post.save
-    redirect_to post
+    @post = current_user.posts.build(post_params)
+    if post.save
+      redirect_to post
+    else
+      pp 'error' + post
+    end
   end
 
   def edit; end
@@ -38,7 +43,11 @@ class PostsController < ApplicationController
     @post ||= Post.find(params[:id])
   end
 
+  def user_post
+    redirect_back(fallback_location: root_path) unless @post = current_user.posts.find_by(id: params[:id])
+  end
+
   def post_params
-    params.require(:post).permit(:title, :body, :image, images: [])
+    params.require(:post).permit(:user_id, :title, :body, :image, images: [])
   end
 end

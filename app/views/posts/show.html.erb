@@ -1,28 +1,24 @@
-<div class="col">
+<div class="">
   <h1>
     <%= @post.title%>
+    <%= link_to "edit", edit_post_path(@post) if user_signed_in? && @post.user_id == current_user.id%>
+    <span>
+      Автор:
+      <%=@post.user.email%>
+    </span>
   </h1>
-  <%= image_tag @post.photo, width:500, height:500 %>
+  <%= image_tag @post.photo, width:500, height:300 %>
   <p>
     <%= @post.body%>
   </p>
-  <div class="col">
+  <div id="images">
     <% @post.images.each do |image|%>
-      <%= image_tag image, width:300, height:300%>
+      <%= image_tag image,height:300%>
     <%end%>
   </div>
-  <div class="comments">
-    <%if user_signed_in?%>
-      <%= render "comments/form"%>
-    <% end %>
+    <%= render "comments/form", object: @post%>
+    <div style="padding: 20px">
     Коментарі:
-    <%= render @comments %>
+    <%=render @comments %>
   </div>
-  <% if user_signed_in? %>
-    <% if @post.username.eql? current_user.email %>
-      <span class="p-2 text-dark"><%= link_to "Редагувати", edit_post_path(@post), :class => "btn btn-outline-success" %></span>
-  <% end %>
-<% end %>
-<%= link_to "На головну", root_path , :class => 'btn btn-warning' %>
 </div>
-<h4>Автор посту: <%= @post.username %></h4>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'posts#index'
-  get 'about' => 'pages#about'
-  get 'image' => 'pages#image'
-  resources :posts do
-    resources :comments
-  end
-  resources :comments
+
+  root to: 'posts#index'
+
+  resources :posts
+
+  resources :comments, only: [:destroy]
+
+  post ':object_type/:object_id/comments', to: 'comments#create', as: 'comments'
 end
