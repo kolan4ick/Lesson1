@@ -1,9 +1,11 @@
-  <div id="comment_<%=comment.id%>">
-    <p><%= comment.text%></p>
+  <div id="comment_<%= comment.id %>">
+    <h4>
+      <p><%= comment.text %></p>
+    </h4>
+    <%= comment.created_at %>
     <span>
       <%= comment.user.email%><%= link_to "delete", comment_path(comment),method: :delete,class:"btn btn-danger" if user_signed_in? && comment.user_id == current_user.id %>
     </span>
-    <%= comment.created_at%>
 
       <%= render "comments/form", object: comment%>
       <div style="padding: 20px">

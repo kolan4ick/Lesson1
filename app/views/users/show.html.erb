@@ -1,0 +1,7 @@
+<% posts = @user.posts %>
+<% likes = 0 %>
+<% posts.each do |post| %>
+<% likes += post.likes.count %>
+<%= render post %>
+<% end %>
+<h4>Кількість лайків усіх постів = <%= likes %></h4>

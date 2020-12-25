@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    post.update(views: post.views + 1)
     @comments = post.comments
   end
 
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    post.views = 0
     if post.save
       redirect_to post
     else
@@ -48,6 +50,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :body, :image, images: [])
+    params.require(:post).permit(:user_id, :title, :views, :body, :image, images: [])
   end
 end

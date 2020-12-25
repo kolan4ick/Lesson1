@@ -1,7 +1,6 @@
 <div class="">
   <h1>
     <%= @post.title%>
-    <%= link_to "edit", edit_post_path(@post) if user_signed_in? && @post.user_id == current_user.id%>
     <span>
       Автор:
       <%=@post.user.email%>
@@ -13,12 +12,29 @@
   </p>
   <div id="images">
     <% @post.images.each do |image|%>
-      <%= image_tag image,height:300%>
+      <%= image_tag image, width:500, height:300%>
     <%end%>
   </div>
+  <%if user_signed_in? %>
+    <% if @post.user_id == current_user.id%>
+      <%= link_to "Редагувати", edit_post_path(@post), class:"btn btn-success" %>
+      <%= link_to "Видалити", post_path(@post), class:"btn btn-danger", method: :delete %>
+    <% end %>
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= button_to "Забрати лайк", post_like_path(@post, pre_like), class:"btn btn-danger", method: :delete %>
+      <% else %>
+        <%= button_to "Поставити лайк", post_likes_path(@post), class:"btn btn-primary", method: :post %>
+      <% end %>
+    <% end %>
+    <h4><%= @post.likes.count %>
+      <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></h4>
     <%= render "comments/form", object: @post%>
     <div style="padding: 20px">
-    Коментарі:
-    <%=render @comments %>
+      Коментарі:
+      <%=render @comments %>
+    </div>
   </div>
-</div>
+  <h4>Переглядів:
+    <%= @post.views %>
+  </h4>

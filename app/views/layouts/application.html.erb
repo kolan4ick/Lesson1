@@ -12,7 +12,9 @@
 
   <body>
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <p class="h5 my-0 me-md-auto fw-normal">Mini-Blog</p>
+      <h4>
+        <span class="p-2 text-dark"><%= link_to "Mini-Blog", root_path %></span>
+      </h4>
       <nav class="my-2 my-md-0 me-md-3">
         <div class="row-3">
           <% if !(user_signed_in?) %>
@@ -21,6 +23,7 @@
           <% end %>
           <%if user_signed_in?%>
             <span class="p-2 text-dark"><%= link_to "Створити нову статтю", new_post_path(@post), :class => 'btn btn-warning' %></span>
+            <%= link_to current_user.email, current_user%>
             <span class="p-2 text-dark"><%= link_to "Вийти", destroy_user_session_path, method: :delete, :class => 'btn btn-warning' %></span>
           <% end %>
         </div>

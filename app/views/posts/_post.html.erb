@@ -1,11 +1,17 @@
 <div class="col-6">
+  <h4>
+    <b>
+      <%= link_to post.title, post_path(post) %>
+    </b>
+  </h4>
   <%= image_tag post.photo, width:300, height:300 %>
-  <b>
-    <%= link_to post.title, post_path(post) %>
-  </b>
 
   <% if user_signed_in? && post.user_id == current_user.id %>
-  <%= link_to "edit", edit_post_path(post) %>
-  <%= link_to "delete", post_path(post), method: :delete%>
+  <%= link_to "Редагувати", edit_post_path(post), class:"btn btn-success" %>
+  <%= link_to "Видалити", post_path(post), class:"btn btn-danger", method: :delete %>
   <%end%>
+  <h2>
+    <p><%= post.likes.count %>
+      <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  </h2>
 </div>
