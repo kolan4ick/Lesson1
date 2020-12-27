@@ -6,6 +6,9 @@
       <%=@post.user.email%>
     </span>
   </h1>
+  <h2>Категорія:
+    <%=link_to @post.category.title,category_path(@post.category)%>
+  </h2>
   <%= image_tag @post.photo, width:500, height:300 %>
   <p>
     <%= @post.body%>

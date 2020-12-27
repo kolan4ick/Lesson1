@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :likes
   end
   resources :users, only: [:show]
+  resources :categories, only: %i[show index]
   post ':object_type/:object_id/comments', to: 'comments#create', as: 'comments'
 end

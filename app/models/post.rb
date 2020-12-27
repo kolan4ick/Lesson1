@@ -7,6 +7,7 @@ class Post < ApplicationRecord
 
   has_many :comments, as: :object
   belongs_to :user
+  belongs_to :category
   def photo
     if image.attached?
       image

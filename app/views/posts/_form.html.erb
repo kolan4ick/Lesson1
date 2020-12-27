@@ -10,6 +10,12 @@
   </b>
   <%= f.text_area :body %>
 </div>
+<p>
+  <div class="field">
+    <%=f.label :category%>
+    <%=f.select :category_id, Category.all.collect{|category|[category.title, category.id]}%>
+  </div>
+</p>
 <div class="field">
   <%= f.label :image %>
   <%= f.file_field :image, class: "form-control" %>
