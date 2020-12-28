@@ -24,7 +24,10 @@
           <span class="p-2 text-dark"><%= link_to "Категорії", categories_path, :class => 'btn btn-warning' %></span>
           <%if user_signed_in?%>
             <span class="p-2 text-dark"><%= link_to "Створити нову статтю", new_post_path(@post), :class => 'btn btn-warning' %></span>
-            <%= link_to current_user.email, current_user%>
+            <span>
+              <%= image_tag current_user.img, width:50, height:50%>
+            </span>
+            <font size="5"><%= link_to current_user.nickname, current_user%></font>
             <span class="p-2 text-dark"><%= link_to "Вийти", destroy_user_session_path, method: :delete, :class => 'btn btn-warning' %></span>
           <% end %>
         </div>

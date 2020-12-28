@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_one_attached :avatar
+  def img
+    if avatar.attached?
+      avatar
+    else
+      '/undefind.png'
+    end
+  end
 end

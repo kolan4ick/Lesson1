@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # before_action :post
 
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:likes).with_attached_image
   end
 
   def show

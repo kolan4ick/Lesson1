@@ -1,5 +1,6 @@
 require 'faker'
-User.create!(email: 'Kolan4ick@gmail.com', password: 'KtT9E4z3muU4L9F', password_confirmation: 'KtT9E4z3muU4L9F')
+User.create!(email: 'Kolan4ick@gmail.com', nickname: 'Kolan4ick', password: 'KtT9E4z3muU4L9F',
+             password_confirmation: 'KtT9E4z3muU4L9F')
 
 Category.create!(
   [
