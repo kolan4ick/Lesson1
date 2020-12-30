@@ -1,11 +1,11 @@
 <div class="">
   <h1>
     <%= @post.title%>
-    <span>
-      Автор:
-      <%=@post.user.email%>
-    </span>
   </h1>
+  <div style='font-size: 40px'>
+    Автор:
+    <%=link_to @post.user.nickname, @post.user%>
+  </div>
   <h2>Категорія:
     <%=link_to @post.category.title,category_path(@post.category)%>
   </h2>
@@ -30,8 +30,8 @@
         <%= button_to "Поставити лайк", post_likes_path(@post), class:"btn btn-primary", method: :post %>
       <% end %>
     <% end %>
-    <h4><%= @post.likes.count %>
-      <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></h4>
+    <h4><%= @post.likes.size %>
+      <%= (@post.likes.size) == 1 ? 'Like' : 'Likes'%></h4>
     <%= render "comments/form", object: @post%>
     <div style="padding: 20px">
       Коментарі:
