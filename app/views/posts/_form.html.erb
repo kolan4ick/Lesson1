@@ -1,26 +1,8 @@
-<div class="">
-  <b>
-    <%= f.label :title %>
-  </b>
-  <%= f.text_field :title %>
-</div>
-<div class="">
-  <b>
-    <%= f.label :body %>
-  </b>
-  <%= f.text_area :body %>
-</div>
-<p>
-  <div class="field">
-    <%=f.label :category%>
-    <%=f.select :category_id, Category.all.collect{|category|[category.title, category.id]}%>
-  </div>
-</p>
-<div class="field">
-  <%= f.label :image %>
-  <%= f.file_field :image, class: "form-control" %>
-  <p>
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true, class: "form-control"%>
-  </p>
-</div>
+<%=f.input :title%>
+<%=f.input :body, as: :text%>
+
+<%=f.association :category%>
+
+<%=f.input :image, as: :file%>
+
+<%=f.input :images, as: :file, input_html:{multiple: true}%>
